@@ -1,36 +1,66 @@
 <template>
-  <div id="app">
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-          </div>
-        </div>
-        <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            With Bootstrap!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <router-view/>
-        </div>
-      </div>
+    <div id="app">
+        <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+        <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+        <h1>
+            <a @click="mailto()" :title="name">{{ name }}</a>
+        </h1>
     </div>
-
-  </div>
 </template>
 
-<style lang="scss">
-.sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+<script>
+// import HelloWorld from './components/HelloWorld.vue'
+
+
+
+export default {
+    name: 'app',
+    //   components: {
+    //     HelloWorld
+    //   },
+    data() {
+        return {
+            name: 'NOVUS IDEA',
+            email: 'mail@novusidea.de',
+        }
+    },
+    methods: {
+        mailto() {
+            window.location = 'mailto:' + this.email;
+        },
+    }
 }
+</script>
+
+<style lang="scss">
+body {
+    font-family: 'Megrim', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+h1 a {
+    color: #777;
+    font-size: 2rem;
+    font-weight: 100;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 2rem;
+}
+// #app {
+//   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+//   margin-top: 60px;
+// }
 </style>
