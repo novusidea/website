@@ -5,6 +5,7 @@
         <logo :image="logo" title="NOVUS IDEA" />
         <a class="contact" @click="mailto()" :title="name">@</a>
     </div>
+    
 </template>
 
 <script>
