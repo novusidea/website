@@ -1,26 +1,25 @@
 <template>
     <div id="app">
-        <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+        <!-- <img alt="Vue logo" src="./assets/logo.svg"> -->
         <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-        <h1>
-            <a @click="mailto()" :title="name">{{ name }}</a>
-        </h1>
+        <logo :image="logo" title="NOVUS IDEA" />
+        <a class="contact" @click="mailto()" :title="name">@</a>
     </div>
 </template>
 
 <script>
+import Logo from './components/Logo.vue'
 // import HelloWorld from './components/HelloWorld.vue'
-
-
 
 export default {
     name: 'app',
-    //   components: {
-    //     HelloWorld
-    //   },
+    components: {
+        logo: Logo
+    },
     data() {
         return {
             name: 'NOVUS IDEA',
+            logo: require('./assets/logo.svg'),
             email: 'mail@novusidea.de',
         }
     },
@@ -33,34 +32,40 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+    font-size: 20px;
+}
+
 body {
     font-family: 'Megrim', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 1rem;
     height: 100vh;
     margin: 0;
 }
 
-h1 {
-    margin: 0;
-}
-
-h1 a {
+a {
     color: #777;
-    font-size: 2rem;
-    font-weight: 100;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    padding: 2rem;
 }
-// #app {
-//   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-//   margin-top: 60px;
-// }
+
+.contact {
+    font-family: 'Arial' , sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #ccc;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    &:hover {
+        color: #aaa;
+    }
+}
 </style>
