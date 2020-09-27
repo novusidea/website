@@ -5,32 +5,20 @@
         <router-link to="/about">About</router-link>
     </div> -->
 
-    <logo :image="logo" title="NOVUS IDEA" />
+    <img id="Logo" :src="$store.state.logo" :title="$store.state.name" :alt="$store.state.name">
 
-    <a class="contact" @click="mailto()" :title="name">@</a>
+    <a class="contact" @click="mailto()" :title="$store.state.name">@</a>
 
     <!-- <router-view/> -->
 
 </template>
 
 <script>
-import Logo from './components/Logo.vue'
-
 export default {
     name: 'app',
-    components: {
-        logo: Logo
-    },
-    data() {
-        return {
-            name: 'NOVUS IDEA',
-            logo: require('./assets/logo.svg'),
-            email: 'mail@novusidea.de',
-        }
-    },
     methods: {
         mailto() {
-            window.location = 'mailto:' + this.email;
+            window.location = 'mailto:' + this.$store.state.email;
         },
     }
 }
@@ -60,6 +48,16 @@ a {
     cursor: pointer;
 }
 
+#Logo {
+    animation-name: pulse;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    transform: scale(0.9);
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+}
+
 .contact {
     font-family: 'Arial' , sans-serif;
     font-weight: 400;
@@ -71,6 +69,21 @@ a {
 
     &:hover {
         color: #aaa;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.5;
     }
 }
 </style>
