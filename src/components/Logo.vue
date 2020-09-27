@@ -29,7 +29,7 @@ export default {
         },
         height: {
             type: String,
-            default: null,
+            default: '100',
         },
     },
 }
@@ -53,7 +53,7 @@ export default {
         transform: scale(1);
         opacity: 1;
     }
-    100% {  
+    100% {
         transform: scale(0.9);
         opacity: 0.5;
     }

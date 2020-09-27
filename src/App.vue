@@ -1,16 +1,20 @@
 <template>
-    <div id="app">
-        <!-- <img alt="Vue logo" src="./assets/logo.svg"> -->
-        <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-        <logo :image="logo" title="NOVUS IDEA" />
-        <a class="contact" @click="mailto()" :title="name">@</a>
-    </div>
-    
+
+    <!-- <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+    </div> -->
+
+    <logo :image="logo" title="NOVUS IDEA" />
+
+    <a class="contact" @click="mailto()" :title="name">@</a>
+
+    <!-- <router-view/> -->
+
 </template>
 
 <script>
 import Logo from './components/Logo.vue'
-// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
     name: 'app',
@@ -38,7 +42,7 @@ html {
 }
 
 body {
-    font-family: 'Megrim', sans-serif;
+    font-family: 'Megrim', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
